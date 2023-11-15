@@ -1,0 +1,86 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include "stack.cpp"
+#include "queue.cpp"
+
+using namespace std;
+
+int main() {
+	queue<int> t1;
+	stack<int> t;
+	int i;
+
+	ifstream f1;
+	f1.open("input.txt");
+	ofstream f2;
+	f2.open("output.txt");
+
+	while (f1 >> i)
+	{
+		t.push(i);
+		t1.put(i);
+		//cout << t.top();
+	}
+	f1.close();
+
+	while (!t.empty())
+	{
+		//cout << "while";
+		if (t.pop() < 0)
+		{
+			f2 << t.pop() << " ";
+		}
+	}
+	cout << endl;
+	while (!t1.empty())
+	{
+		//cout << "while1";
+		if (t1.get() < 0)
+		{
+			f2 << t1.get() << " ";
+		}
+	}
+	
+	f2.close();
+	/*f1.open("input.txt");
+	while (f1 >> i)
+	{
+		//t.push(i);
+		t1.put(i);
+	}
+	f2.open("output.txt");
+	while (!t1.empty())
+	{
+		if (t1.get() < 0)
+		{
+			f2 << t1.get() << " ";
+		}
+	}
+	f2.close();*/
+	/*
+	int n;
+	cout << "vvedite n(kol-vo chisel): ";
+	cin >> n;
+
+	int* a = new int[n];
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << "vvedite a[" << i << "]: ";
+		cin >> a[i];
+	}
+	cout << endl;
+
+	for (int i = 0; i < n; i++) 
+	{
+		if (a[i] < 0)
+		{
+
+		}
+	}
+	*/
+	//f1.close();
+	//f2.close();
+	return 0;
+}
